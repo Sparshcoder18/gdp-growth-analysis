@@ -31,21 +31,21 @@ This project performs a descriptive cross-country analysis of GDP (Current US$) 
 - Descriptive Statistical Analysis
 
 ## 📂 Project Structure
-gdp-growth-analysis/
-│
-├── data/
-│   └── Download-GDPcurrent-USD-countries.xlsx
-│
-├── notebooks/
-│   └── GDP Data Analysis Project.ipynb
-│
-├── src/
-│   └── analysis.py  (if you convert notebook code into script later)
-│
-├── outputs/
-│   ├── plots/
-│   └── tables/
-│
-├── README.md
-├── requirements.txt
-└── .gitignore
+#### gdp-growth-analysis/
+#### │
+#### ├── data/
+#### │   └── Download-GDPcurrent-USD-countries.xlsx
+#### │
+#### ├── notebooks/
+#### │   └── GDP Data Analysis Project.ipynb
+#### │
+#### ├── src/
+#### │   └── analysis.py  (if you convert notebook code into script later)
+#### │
+#### ├── outputs/
+#### │   ├── plots/
+#### │   └── tables/
+#### │
+#### ├── README.md
+#### ├── requirements.txt
+#### └── .gitignore
