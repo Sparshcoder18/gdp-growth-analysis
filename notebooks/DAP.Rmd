@@ -1,0 +1,292 @@
+---
+title: "DAP Project"
+author: "Sparsh Verma"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+### Loading the dataset.
+
+```{r}
+setwd("C:/Projects/DAP/gdp-growth-analysis")
+library(readxl)
+
+df <- read_excel("./data/GDPcurrent-USD-countries.xlsx")
+
+
+head(df)
+
+str(df)
+
+colnames(df)
+
+```
+
+### converting the values in dataset to billion scale.
+
+```{r}
+
+library(dplyr)
+
+# Step 1: Select columns that are purely numeric (years)
+years <- names(df)[grepl("^\\d+$", names(df))]
+
+# Step 2 & 3: Convert to numeric, then to billions and round to 3 decimals
+df <- df |>
+  mutate(across(all_of(years), ~ round(as.numeric(.x) / 1e9, 3)))
+
+# Preview
+head(df)
+
+```
+
+### Finding missing values in dataset.
+
+```{r}
+
+sum(is.na(df))
+colSums(is.na(df))
+
+```
+
+### Reshaping the dataset to longer format.
+
+```{r}
+
+library(tidyr)
+
+df_long = pivot_longer(
+  df,
+  cols = '1970' : '2024',
+  names_to = "Years",
+  values_to = "Value"
+)
+
+df_long
+
+head(df_long)
+str(df_long)
+
+df_long$Years <- as.numeric(df_long$Years)
+
+```
+
+### handling missing values now
+
+```{r}
+colSums(is.na(df_long))
+
+library(dplyr)
+library(zoo)
+
+df_clean = df_long |>
+  group_by(Country, IndicatorName) |>
+  arrange(Years, .by_group = TRUE) |>
+  mutate(Value = na.approx(Value, na.rm = FALSE)) |>
+  fill(Value, .direction = "downup")
+
+colSums(is.na(df_clean))
+
+```
+
+### Filtering data for India and "GDP growth (annual %)"
+
+```{r}
+
+df_india <- df_clean |>
+  filter(Country == "India", IndicatorName == "Gross Domestic Product (GDP)")
+
+df_india <- df_india |>
+  mutate(Value = Value / 1e9)
+
+df_india <- df_india |>
+  rename(`Value in Billions` = Value)
+
+head(df_india)
+
+```
+
+### Time Series Analysis for India's GDP from 1970 to 2024
+
+```{r}
+
+library(ggplot2)
+
+ggplot(df_india, aes(x = Years, y = `Value in Billions`)) +
+  labs(
+    title = "GDP Trends of India from 1970 - 2024",
+    x = "Years",
+    y = "GDP in Billions"
+  ) +
+  geom_line()
+
+```
+
+### Transforming values to its log values for converting ecponential to linear trend and making modelling easier.
+
+```{r}
+
+df_india <- df_india |>
+  mutate(`Log_GDP` = log(`Value in Billions`))
+
+head(df_india)
+
+ggplot(df_india, aes(x = Years, y = Log_GDP)) +
+  labs(
+    title =  "GDP Trends of India with Log Values of GDP",
+    x = "Years",
+    y = "Log GDP"
+  ) +
+  geom_line()
+
+```
+
+### Creating a feature to separate pre 1991 phase and post 1991 phase for better model and trend analysis because we are having different slopes for growth in both phases.
+
+```{r}
+
+df_india <- df_india |>
+  mutate(Post_1991 = ifelse(Years >= 1991, "Yes", "No"))
+
+head(df_india)
+
+table(df_india$Post_1991)
+
+ggplot(df_india, aes(x = Years, y = Log_GDP, color = Post_1991, group = 1)) +
+  labs(
+    title = "GDP Trends of India with Log Values",
+    x = "Years",
+    y = "Log GDP",
+    color = "Post 1991"
+  ) +
+  geom_line()
+
+```
+
+### Now filtering out the data with GDP indicator only.
+
+```{r}
+
+df_gdp <- df_clean |>
+  filter(IndicatorName == "Gross Domestic Product (GDP)")
+
+# Renaming the columns properly
+
+df_gdp <- df_gdp |>
+  rename(
+    Year = Years,
+    GDP = Value
+  )
+
+
+df_gdp
+
+```
+
+### Now converting the final dataset into long format
+### All of the Feature Engineering done in Python
+
+```{r}
+
+library(readxl)
+library(tidyverse)
+
+df_final <- read_excel("C:/Projects/DAP/gdp-growth-analysis/data/data_gdp_final.xlsx")
+
+colnames(df_final)
+
+## converting into long format
+
+df_final_long <- df_final |>
+  
+  # Convert wide → long
+  pivot_longer(
+    cols = matches("^\\d{4}$"),
+    names_to = "Year",
+    values_to = "GDP"
+  ) |>
+  
+  # Fix types
+  mutate(
+    Year = as.integer(Year),
+    GDP = as.numeric(GDP)
+  ) |>
+  
+  # Sort before growth calculation (CRITICAL)
+  arrange(Country, Year) |>
+  
+  group_by(Country) |>
+  mutate(
+    Growth = (GDP - lag(GDP)) / lag(GDP) * 100
+  ) |>
+  
+  mutate(
+    Growth = ifelse(row_number() == 1, 0, Growth)
+  ) |>
+  
+  # Reorder columns EXACTLY as you want
+  select(
+    CountryID,
+    Country,
+    Year,
+    GDP,
+    Growth,
+    CAGR,
+    Growth_Volatility,
+    GDP_Multiplier
+  ) |>
+  
+  mutate(Growth = replace_na(Growth, 0))
+```
+
+### Adding Rank: Ranking of countries based on GDP within each year
+Rank = 1 → Largest economy that year
+Rank = 2 → Second largest
+etc.
+
+```{r}
+
+df_final_long <- df_final_long |>
+  group_by(Year) |>
+  mutate(
+    Rank = rank(-GDP)
+  ) |>
+  ungroup()
+
+```
+
+### Adding Ranking for other factors as well
+
+```{r}
+
+df_final_long <- df_final_long |>
+  group_by(Year) |>
+  mutate(
+    Rank_Growth = rank(-Growth)
+  ) |>
+  ungroup() |>
+  
+  group_by(Country) |>
+  mutate(
+    Rank_CAGR = rank(-CAGR),
+    Rank_Stability = rank(Growth_Volatility)
+  ) |>
+  ungroup()
+
+```
+
+
+### Exporting the dataset
+install.packages("writexl")   # run once
+
+```{r}
+#ensuring the correct data structure for dataset.
+str(df_final_long)
+
+library(writexl)
+write_xlsx(df_final_long, "gdp_powerbi_ready.xlsx")
+
+```
+
