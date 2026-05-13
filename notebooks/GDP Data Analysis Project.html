@@ -7918,7 +7918,7 @@ a.anchor-link {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>&lt;&gt;:5: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
 &lt;&gt;:5: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
-C:\Users\spars\AppData\Local\Temp\ipykernel_15544\2340355294.py:5: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
+C:\Users\spars\AppData\Local\Temp\ipykernel_21520\2340355294.py:5: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
   file_path = "C:\Projects\DAP\gdp-growth-analysis\data\GDPcurrent-USD-countries.xlsx"
 </pre>
 </div>
@@ -16260,7 +16260,7 @@ Statiscal information of cleaned dataset:
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>&lt;&gt;:1: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
 &lt;&gt;:1: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
-C:\Users\spars\AppData\Local\Temp\ipykernel_15544\1681994339.py:1: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
+C:\Users\spars\AppData\Local\Temp\ipykernel_21520\1681994339.py:1: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
   df_clean.to_excel("C:\Projects\DAP\gdp-growth-analysis\data\data_gdp.xlsx", index=False)
 </pre>
 </div>
@@ -18454,7 +18454,7 @@ Length: 179, dtype: float64</pre>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>&lt;&gt;:1: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
 &lt;&gt;:1: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
-C:\Users\spars\AppData\Local\Temp\ipykernel_15544\213500974.py:1: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
+C:\Users\spars\AppData\Local\Temp\ipykernel_21520\213500974.py:1: SyntaxWarning: "\P" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\P"? A raw string is also an option.
   df_clean.to_excel("C:\Projects\DAP\gdp-growth-analysis\data\data_gdp_final.xlsx", index=False)
 </pre>
 </div>
@@ -26423,12 +26423,25 @@ Length: 17, dtype: str
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6092e5e3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Interpretation:-Structural-Correlation-Matrix-(2024)">Interpretation: Structural Correlation Matrix (2024)<a class="anchor-link" href="#Interpretation:-Structural-Correlation-Matrix-(2024)">¶</a></h3><p>The structural correlation matrix reveals strong positive relationships among GDP, exports, imports, gross capital formation, final consumption expenditure, and manufacturing, with most correlations ranging from <strong>0.81 to 1.00</strong>. This indicates that larger economies generally exhibit higher trade activity, investment levels, consumption expenditure, and industrial output simultaneously.</p>
+<p>Manufacturing shows particularly strong correlation with GDP (<strong>0.98</strong>), suggesting a close association between industrial strength and overall economic scale. Exports and imports are also highly correlated (<strong>0.98</strong>), reflecting the interconnected nature of global trade flows.</p>
+<p>In contrast, <strong>Trade Openness %</strong> shows weak or slightly negative correlation with GDP and other absolute indicators, implying that smaller economies can still be highly trade-integrated regardless of economic size. <strong>Trade Balance %</strong> exhibits only weak positive relationships, indicating that surplus or deficit positions vary independently across countries.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d061fec5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [81]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ---------------------------------------------</span>
@@ -26442,7 +26455,9 @@ Length: 17, dtype: str
     <span class="n">x</span><span class="o">=</span><span class="s2">"Dominant_Structure"</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s2">"Country_Count"</span><span class="p">,</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">"Country_Count"</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"Dominant Structural Profile by Country (2024)"</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"Dominant Structural Profile by Country (2024)"</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">template</span><span class="o">=</span><span class="s2">"plotly_white"</span>
 <span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">textposition</span><span class="o">=</span><span class="s2">"outside"</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -26460,12 +26475,26 @@ Length: 17, dtype: str
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f7b905b8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Interpretation:-Dominant-Structural-Profile-by-Country-(2024)">Interpretation: Dominant Structural Profile by Country (2024)<a class="anchor-link" href="#Interpretation:-Dominant-Structural-Profile-by-Country-(2024)">¶</a></h3><p>The dominant structural profile analysis shows that <strong>Final Consumption Expenditure (FCE)</strong> is the primary economic component for the majority of countries, dominating in <strong>146 economies</strong>. This suggests that most economies are largely driven by domestic consumption and household demand.</p>
+<p>In comparison, <strong>Exports</strong> emerge as the dominant structure in <strong>26 countries</strong>, indicating the presence of highly trade-oriented and externally integrated economies such as global trade hubs and export-driven nations.</p>
+<p>Only <strong>5 countries</strong> show <strong>Imports</strong> as the dominant structural component, reflecting relatively high import dependency within those economies.</p>
+<p>Overall, the results indicate that consumption-led economic structures are far more common globally than export- or import-dominated models, highlighting the central role of domestic demand in sustaining economic activity across countries.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ef509fa3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [79]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [82]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ---------------------------------------------</span>
@@ -26528,82 +26557,29 @@ Length: 17, dtype: str
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=72a3a2bd">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb993b6f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [80]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ---------------------------------------------</span>
-<span class="c1"># Optional: PCA + clustering of economic structure</span>
-<span class="c1"># ---------------------------------------------</span>
-
-<span class="n">feature_cols</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">"Exports_share_%"</span><span class="p">,</span>
-    <span class="s2">"Imports_share_%"</span><span class="p">,</span>
-    <span class="s2">"GCF_share_%"</span><span class="p">,</span>
-    <span class="s2">"FCE_share_%"</span><span class="p">,</span>
-    <span class="s2">"Manufacturing_share_%"</span><span class="p">,</span>
-    <span class="s2">"Trade_Openness_%"</span><span class="p">,</span>
-    <span class="s2">"Trade_Balance_%"</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="n">cluster_features</span> <span class="o">=</span> <span class="n">struct_2024</span><span class="p">[[</span><span class="s2">"Country"</span><span class="p">]</span> <span class="o">+</span> <span class="n">feature_cols</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cluster_features</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">])</span>
-
-<span class="c1"># Pick a sensible k by silhouette score</span>
-<span class="n">sil_scores</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
-    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="n">sil_scores</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
-
-<span class="n">best_k</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">sil_scores</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sil_scores</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Silhouette scores:"</span><span class="p">,</span> <span class="n">sil_scores</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Best k:"</span><span class="p">,</span> <span class="n">best_k</span><span class="p">)</span>
-
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">best_k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">cluster_features</span><span class="p">[</span><span class="s2">"Cluster"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-<span class="c1"># PCA for 2D visualization</span>
-<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">coords</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">cluster_features</span><span class="p">[</span><span class="s2">"PC1"</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">cluster_features</span><span class="p">[</span><span class="s2">"PC2"</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-    <span class="n">cluster_features</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">"PC1"</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">"PC2"</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s2">"Cluster"</span><span class="p">,</span>
-    <span class="n">hover_name</span><span class="o">=</span><span class="s2">"Country"</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"Country Clusters by Economic Structure (PCA Projection)"</span>
-<span class="p">)</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Silhouette scores: {2: 0.367926937550124, 3: 0.309602173455177, 4: 0.2828982609728192, 5: 0.2158182188061791, 6: 0.23767540364776224}
-Best k: 2
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Interpretation:-Structural-Economic-Profiles-of-Major-Economies-(1980%E2%80%932024)">Interpretation: Structural Economic Profiles of Major Economies (1980–2024)<a class="anchor-link" href="#Interpretation:-Structural-Economic-Profiles-of-Major-Economies-(1980%E2%80%932024)">¶</a></h3><p>The structural share analysis highlights distinct long-term macroeconomic patterns across major global economies by examining exports, imports, investment, consumption, and manufacturing as percentages of GDP.</p>
+<ul>
+<li><p><strong>India</strong> exhibits a predominantly consumption-driven structure throughout the period, with Final Consumption Expenditure consistently contributing the largest share of GDP. The analysis also shows a gradual rise in trade integration and investment intensity after the early 2000s, reflecting economic liberalization and industrial expansion.</p>
+</li>
+<li><p><strong>China</strong> demonstrates a strong investment- and manufacturing-oriented growth model. Gross Capital Formation remains exceptionally high over time, while exports and imports increased significantly during the country’s rapid globalization phase, indicating deep integration into global supply chains.</p>
+</li>
+<li><p><strong>Germany</strong> displays a highly export-oriented economic structure. Export and import shares rise substantially after the late 1990s, reflecting Germany’s strong industrial and trade-based economy. Consumption remains relatively stable compared to trade activity.</p>
+</li>
+<li><p><strong>Japan</strong> shows characteristics of a mature high-income economy, with stable consumption dominance and gradually declining manufacturing and investment shares over time. Trade activity remains moderate relative to GDP.</p>
+</li>
+<li><p><strong>United States</strong> maintains a strongly consumption-led economic structure across the entire period. Final Consumption Expenditure consistently dominates GDP composition, while exports and imports remain comparatively lower than in export-intensive economies such as Germany or China.</p>
+</li>
+<li><p><strong>Brazil</strong> demonstrates a consumption-oriented structure similar to other large domestic-demand economies, though with relatively moderate trade integration and fluctuating investment and manufacturing shares.</p>
+</li>
+</ul>
+<p>Overall, the analysis reveals clear structural differences between economies driven primarily by domestic consumption and those driven by trade, investment, or industrial production. These long-term patterns provide deeper insight into the underlying economic models supporting growth across countries.</p>
 </div>
 </div>
 </div>
@@ -26612,28 +26588,13 @@ Best k: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [81]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ---------------------------------------------</span>
 <span class="c1"># Final export</span>
 <span class="c1"># ---------------------------------------------</span>
 <span class="n">struct_2024</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">"C:</span><span class="se">\\</span><span class="s2">Projects</span><span class="se">\\</span><span class="s2">DAP</span><span class="se">\\</span><span class="s2">gdp-growth-analysis</span><span class="se">\\</span><span class="s2">data</span><span class="se">\\</span><span class="s2">structural_snapshot_2024.xlsx"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">cluster_features</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">"C:</span><span class="se">\\</span><span class="s2">Projects</span><span class="se">\\</span><span class="s2">DAP</span><span class="se">\\</span><span class="s2">gdp-growth-analysis</span><span class="se">\\</span><span class="s2">data</span><span class="se">\\</span><span class="s2">structural_clusters.xlsx"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4e64542b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
